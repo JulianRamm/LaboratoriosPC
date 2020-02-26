@@ -1,25 +1,33 @@
 ## Punto 1
-def multpl():
-    arr = list(map(int, input("Ingrese los números separados por espacio").split()))
+def multpl(arr):
     multp = 1;
     for i in range(len(arr)):
         multp *= arr[i]
     return multpl
+def punto1():
+    arr = list(map(int, input("Ingrese los números separados por espacio").split(" ")))
+    print(multpl(arr))
 ## Punto 2
 def fact(n):
     if n == 0 or n == 1:
         return 1
     else:
         return n*fact(n-1)
+def punto2():
+    n = int(input("Ingrese el número n"))
+    print(fact(n))
 ## Punto 3
 import math as m;
-def esPrimo(n):
+def esPrimo():
     raiz = m.sqrt(n)
     j = 2;
     while j < raiz:  # Para verificar que un número sea primo basta conv erificar que no hayan factores hasta la raíz del número que se quiere probar
         if n % j == 0:  # En esta línea se calcula el residuo de la división de i con j. Donde i es el i-esimo número de la lista y j es un número menor a la raíz de i
             return False
     return True
+def punto3():
+    n = int(input("Ingrese el número n"))
+    print(esPrimo(n))
 ## Punto 4
 def esPalindrome(cad):
         reemplazos = (
@@ -34,6 +42,9 @@ def esPalindrome(cad):
             cad = cad.replace(a, b).replace(a.upper(), b.upper())
         cad = cad.upper()
         return cad == cad[::-1]
+def punto4():
+    cad = int(input("Ingrese la cadena de caracteres"))
+    print(esPalindrome(cad))
 ## Punto 5
 import math as m
 def pertFib(n):
@@ -42,6 +53,9 @@ def pertFib(n):
     pro2 = 5*n*n-4
     par2 = int(m.sqrt(pro2))
     return par1*par1==pro1 or par2*par2 == pro2
+def punto5():
+    n = int(input("Ingrese el número n"))
+    print(pertFib(n))
 ## Punto 6
 def calcMedia(arr):
     suma = 0
@@ -49,10 +63,13 @@ def calcMedia(arr):
     for i in range(n):
         suma += arr[i]
     return suma / n
-def mediasFilas(arr):
+def mediasFilas(arr, filas):
     resp = []
-    for i in range(len(arr)):
-        resp[i] = calcMedia(arr[i])
+    if filas:
+        for i in range(len(arr)):
+            resp[i] = calcMedia(arr[i])
+    else:
+        
     return resp
 ## Punto 7
 def maxArr(arr):
