@@ -52,7 +52,7 @@ def pertFib(n):
     par1 = int(m.sqrt(pro1))
     pro2 = 5*n*n-4
     par2 = int(m.sqrt(pro2))
-    return par1*par1==pro1 or par2*par2 == pro2
+    return par1*par1 == pro1 or par2*par2 == pro2
 def punto5():
     n = int(input("Ingrese el número n"))
     print(pertFib(n))
@@ -65,12 +65,13 @@ def calcMedia(arr):
     return suma / n
 def mediasFilas(arr, filas):
     resp = []
-    if filas:
-        for i in range(len(arr)):
-            resp[i] = calcMedia(arr[i])
-    else:
-        
+    aux = arr
+    if not filas:
+        aux = [[arr[j][i] for j in range(len(arr[0]))] for i in range(len(arr))]
+    for i in range(len(arr)):
+        resp[i] = calcMedia(arr[i])
     return resp
+
 ## Punto 7
 def maxArr(arr):
     max = 0
