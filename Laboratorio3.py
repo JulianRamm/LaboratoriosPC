@@ -86,28 +86,24 @@ def calcMedia(arr):
     n = len(arr)
     for i in range(n):
         suma += arr[i]
-    print(suma/n)
     return suma / n
 
 
 def mediasFilas(filas):
     n = int(input("Ingrese el número n (Tamaño de filas y columnas de la matriz)"))
     mat = [[None] * n] * n  # Creamos una matriz NxN
-    resp = [[None]*n]
+    resp = [[None]]*n
     aux = mat
     for i in range(n):
         row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
         mat[i] = row
     if not filas:
         aux = [[mat[j][i] for j in range(n)] for i in range(n)]
-    print(mat, resp)
-    print(aux[0])
-    for i in range(n-1):
+    for i in range(n):
         resp[i] = calcMedia(aux[i])
     return resp
 
-
-mediasFilas(True)
+mediasFilas(False)
 ## Punto 7
 def maxArr(arr):
     max = 0
@@ -117,12 +113,19 @@ def maxArr(arr):
     return max
 
 
-def maxsFilas(arr):
-    resp = []
-    for i in range(len(arr)):
-        resp[i] = maxArr(arr[i])
+def maxsFilas(filas):
+    n = int(input("Ingrese el número n (Tamaño de filas y columnas de la matriz)"))
+    mat = [[None] * n] * n  # Creamos una matriz NxN
+    resp = [[None]] * n
+    aux = mat
+    for i in range(n):
+        row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
+        mat[i] = row
+    if not filas:
+        aux = [[mat[j][i] for j in range(n)] for i in range(n)]
+    for i in range(n):
+        resp[i] = maxArr(aux[i])
     return resp
-
 
 ## Punto 8
 import math as m
@@ -136,18 +139,134 @@ def minArr(arr):
     return min
 
 
-def minsFilas(arr):
-    resp = []
-    for i in range(len(arr)):
-        resp[i] = minArr(arr[i])
+def minsFilas(filas):
+    n = int(input("Ingrese el número n (Tamaño de filas y columnas de la matriz)"))
+    mat = [[None] * n] * n  # Creamos una matriz NxN
+    resp = [[None]] * n
+    aux = mat
+    for i in range(n):
+        row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
+        mat[i] = row
+    if not filas:
+        aux = [[mat[j][i] for j in range(n)] for i in range(n)]
+    for i in range(n):
+        resp[i] = minArr(aux[i])
     return resp
 
 
 ## Punto 9
-def sumaMatrices(mat1, mat2):
-    resp = [[]]
-    for i in len(mat1):
-        for j in len(mat1[0]):
-            resp[i][j] = mat1[i][j] + mat2[i][j]
-    return resp;
+def sumaMatrices():
+    n = int(input("Ingrese el tamaño n de columnas de las matrices"))
+    mat1 = [[0] * n] * n
+    mat2 = [[0] * n] * n
+    suma = [[0] * n] * n
+    print("Primera matriz: ")
+    for i in range(n):
+        row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
+        mat1[i] = row
+    print("Segunda matriz: ")
+    for i in range(n):
+        row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
+        mat2[i] = row
+    for i in range(n):
+        for j in range(n):
+            suma[i][j] = mat1[i][j] + mat2[i][j]  # Se sabe que sumar 2 matrices es igual a sumar cada entrada en una posición con la entrada de la otra matriz en la misma posición
+    return suma
 ## Punto 10
+def multpElemMatrices():
+    n = int(input("Ingrese el tamaño n de columnas de las matrices"))
+    mat1 = [[0] * n] * n
+    mat2 = [[0] * n] * n
+    mult = [[0] * n] * n
+    print("Primera matriz: ")
+    for i in range(n):
+        row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
+        mat1[i] = row
+    print("Segunda matriz: ")
+    for i in range(n):
+        row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
+        mat2[i] = row
+    for i in range(n):
+        for j in range(n):
+            mult[i][j] = mat1[i][j] * mat2[i][j]  # Se sabe que sumar 2 matrices es igual a sumar cada entrada en una posición con la entrada de la otra matriz en la misma posición
+    return mult
+print(multpElemMatrices())
+## Punto 11
+import numpy as np
+def punto11_6(filas):
+    n = int(input("Ingrese el número n (Tamaño de filas y columnas de la matriz)"))
+    mat = [[None] * n] * n  # Creamos una matriz NxN
+    resp = [[None]] * n
+    aux = mat
+    for i in range(n):
+        row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
+        mat[i] = row
+    if not filas:
+        aux = [[mat[j][i] for j in range(n)] for i in range(n)]
+    for i in range(n):
+        resp[i] = np.mean(aux[i])
+    return resp
+
+def punto11_7(filas):
+    n = int(input("Ingrese el número n (Tamaño de filas y columnas de la matriz)"))
+    mat = [[None] * n] * n  # Creamos una matriz NxN
+    resp = [[None]] * n
+    aux = mat
+    for i in range(n):
+        row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
+        mat[i] = row
+    if filas:
+        print(np.amax(mat, 1))
+        return np.amax(mat, 1)
+    print(np.amax(mat, 0))
+    return np.amax(mat, 0)
+
+def punto11_8(filas):
+    n = int(input("Ingrese el número n (Tamaño de filas y columnas de la matriz)"))
+    mat = [[None] * n] * n  # Creamos una matriz NxN
+    resp = [[None]] * n
+    aux = mat
+    for i in range(n):
+        row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
+        mat[i] = row
+    if filas:
+        print(np.amin(mat, 1))
+        return np.amin(mat, 1)
+    print(np.amin(mat, 0))
+    return np.amin(mat, 0)
+
+def punto11_9():
+    n = int(input("Ingrese el tamaño n de columnas de las matrices"))
+    mat1 = [[0] * n] * n
+    mat2 = [[0] * n] * n
+    mult = [[0] * n] * n
+    print("Primera matriz: ")
+    for i in range(n):
+        row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
+        mat1[i] = row
+    print("Segunda matriz: ")
+    for i in range(n):
+        row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
+        mat2[i] = row
+    print(np.add(mat1, mat2))
+    return np.add(mat1, mat2)
+
+def punto11_9():
+    n = int(input("Ingrese el tamaño n de columnas de las matrices"))
+    mat1 = [[0] * n] * n
+    mat2 = [[0] * n] * n
+    mult = [[0] * n] * n
+    print("Primera matriz: ")
+    for i in range(n):
+        row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
+        mat1[i] = row
+    print("Segunda matriz: ")
+    for i in range(n):
+        row = list(map(int, input("Ingrese {} números separados por espacio".format(n)).split(' ')))
+        mat2[i] = row
+    print(np.multiply(mat1, mat2))
+    return np.multiply(mat1, mat2)
+## Punto 12
+import numpy as np
+import matplotlib.pyplot as mp
+
