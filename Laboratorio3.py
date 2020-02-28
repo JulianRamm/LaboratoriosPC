@@ -13,7 +13,7 @@ def punto1():
 
 ## Punto 2
 def fact(n):
-    if n == 0 or n == 1 #por defincición factorial(0 V 1) =1
+    if n == 0 or n == 1: #por defincición factorial(0 V 1) =1
         return 1
     else:
         return n * fact(n - 1) #Factorial de n está definido por la multiplicación de todos los números anteriores y n
@@ -270,6 +270,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def punto_12():
+<<<<<<< HEAD
     x = np.arange(0, 10, 0.005)
     frecuencias = np.arange(0 ,10, 1) # Primero obtenemos las frecuencias de 1 a 10
     for i in range(len(frecuencias)):
@@ -305,4 +306,15 @@ def punto_14():
     plt.show()
 punto_14()
 ##
+=======
+    t = np.arange(0, 10, 0.1)
+    frecuencias = np.arange(0 ,10, 1)
+
+    for i in range(len(frecuencias)):
+        y = np.sin(2*np.pi*t)
+        plt.subplot(10, 1, i+1)
+
+
+
+>>>>>>> 57c079cc6b27edca257927d0ab48d1e38ba9fb02
 
