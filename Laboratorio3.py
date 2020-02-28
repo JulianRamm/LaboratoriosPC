@@ -268,5 +268,15 @@ def punto11_9():
     return np.multiply(mat1, mat2)
 ## Punto 12
 import numpy as np
-import matplotlib.pyplot as mp
+import matplotlib.pyplot as plt
+
+def punto_12:
+    t = np.arange(0, 10, 0.1)
+    frecuencias = np.arange(0 ,10, 1)
+
+    for i in range(len(frecuencias)):
+        y = np.sin(2*np.pi*x)
+        plt.subplot(10, 1, i)
+
+
 
