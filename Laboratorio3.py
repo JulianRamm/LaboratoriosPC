@@ -270,13 +270,19 @@ def punto11_9():
 import numpy as np
 import matplotlib.pyplot as plt
 
-def punto_12:
-    t = np.arange(0, 10, 0.1)
+def punto_12():
+    x = np.arange(0, 10, 0.1)
     frecuencias = np.arange(0 ,10, 1)
 
     for i in range(len(frecuencias)):
         y = np.sin(2*np.pi*x)
         plt.subplot(10, 1, i)
-
+        plt.plot(x, y)
+        plt.title("Seno con {} frecuencia".format(i+1))
+        plt.xlabel("Tiempo")
+        plt.ylabel("Seno(t)")
+    plt.show()
+## Punto 13
+def punto_13():
 
 
