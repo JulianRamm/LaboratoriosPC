@@ -251,7 +251,7 @@ def punto11_9():
     print(np.add(mat1, mat2))
     return np.add(mat1, mat2)
 
-def punto11_9():
+def punto11_10():
     n = int(input("Ingrese el tamaño n de columnas de las matrices"))
     mat1 = [[0] * n] * n
     mat2 = [[0] * n] * n
@@ -270,13 +270,14 @@ def punto11_9():
 import numpy as np
 import matplotlib.pyplot as plt
 
-def punto_12:
+def punto_12():
     t = np.arange(0, 10, 0.1)
     frecuencias = np.arange(0 ,10, 1)
 
     for i in range(len(frecuencias)):
-        y = np.sin(2*np.pi*x)
-        plt.subplot(10, 1, i)
+        y = np.sin(2*np.pi*t)
+        plt.subplot(10, 1, i+1)
+
 
 
 
