@@ -270,7 +270,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def punto_12():
-<<<<<<< HEAD
     x = np.arange(0, 10, 0.005)
     frecuencias = np.arange(0 ,10, 1) # Primero obtenemos las frecuencias de 1 a 10
     for i in range(len(frecuencias)):
@@ -304,17 +303,7 @@ def punto_14():
         plt.hist(v, bins=i, density=1) # Creamos 4 histogramas
         plt.title("Histograma con {} particiones".format(i))
     plt.show()
-punto_14()
-##
-=======
-    t = np.arange(0, 10, 0.1)
-    frecuencias = np.arange(0 ,10, 1)
-
-    for i in range(len(frecuencias)):
-        y = np.sin(2*np.pi*t)
-        plt.subplot(10, 1, i+1)
 
 
 
->>>>>>> 57c079cc6b27edca257927d0ab48d1e38ba9fb02
 
