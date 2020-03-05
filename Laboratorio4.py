@@ -39,13 +39,88 @@ def fact(n):
         return n * fact(n - 1)
 
 
-def calcTaylor(x, n):
-    if x == 0 or n == 0:
+def exponencial(x, n):
+    if n == 0:
+        return 1
+    elif x == 0:
+        return 0
+    else:
+        return ((x ** n) / fact(n)) + exponencial(x, n - 1)
+
+
+print(exponencial(2.78, 100))
+
+
+## Punto 4
+def fact(n):
+    if n == 0 or n == 1:  # por defincición factorial(0 V 1) =1
         return 1
     else:
-        return ((x ** n) / fact(n)) + calcTaylor(x, n-1)
+        return n * fact(n - 1)
 
 
-print(calcTaylor(2.78, 6))
+def sen(x, n):
+    if x == 0:
+        return 0
+    elif n == 0:
+        return x
+    else:
+        return (((-1) ** n) * (x ** (2 * n + 1)) / fact(2 * n + 1)) + sen(x, n - 1)
+
+
+print(sen(1, 4))
+## Punto 5
+def fact(n):
+    if n == 0 or n == 1:  # por defincición factorial(0 V 1) =1
+        return 1
+    else:
+        return n * fact(n - 1)
+
+
+def cos(x, n):
+    if x == 0:
+        return 0
+    elif n == 0:
+        return 1
+    else:
+        return (((-1) ** n) * (x ** (2 * n)) / fact(2 * n)) + cos(x, n - 1)
+
+print(cos(1, 4))
+
+## Punto 6
+import numpy as np
+import matplotlib.pyplot as plt
+
+def fact(n):
+    if n == 0 or n == 1:  # por defincición factorial(0 V 1) =1
+        return 1
+    else:
+        return n * fact(n - 1)
+
+
+def exponencial(x, n):
+    if n == 0:
+        return 1
+    elif x == 0:
+        return 0
+    else:
+        return ((x ** n) / fact(n)) + exponencial(x, n - 1)
+
+
+
+def graficarEX():
+    exponentes = []
+    valores = np.arange(10, 1010, 10)
+    print(valores)
+    for i in valores:
+        exponentes.append(exponencial(3, i))
+    plt.plot(valores, exponentes)
+    plt.title("Valor de e^3 con n de diferentes valores")
+    plt.xlabel("N")
+    plt.ylabel("e^3 con N")
+    plt.show()
+print(graficarEX())
+
 
 ##
+
