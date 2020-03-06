@@ -39,15 +39,18 @@ def fact(n):
         return n * fact(n - 1)
 
 
-def exponencial(x, n):
-    if n == 0:
-        return 1
-    elif x == 0:
-        return 0
-    else:
-        return ((x ** n) / fact(n)) + exponencial(x, n - 1)
+def exponencial(x, n, i=0, f=1):
 
-print(isinstance(exponencial(3, 1000), float))
+    if i != 0:
+        f *= i
+    if i == n:
+        return (x ** n) / f
+    else:
+        return  ((x ** i) / f) + exponencial(x, n, i+1, f)
+
+print(exponencial(1, 1000))
+
+
 ## Punto 4
 def fact(n):
     if n == 0 or n == 1:  # por defincición factorial(0 V 1) =1
@@ -91,26 +94,28 @@ print(cos(1, 4))
 import numpy as np
 import matplotlib.pyplot as plt
 
-
 def fact(n):
     if n == 0 or n == 1:  # por defincición factorial(0 V 1) =1
         return 1
     else:
         return n * fact(n - 1)
 
-
-def exponencial(x, n):
-    if n == 0:
-        return 1
-    elif x == 0:
-        return 0
+def exponencial(x, inicio, fin, f,arr):
+    print(f)
+    if inicio != 0:
+        f *= inicio
+        arr.append(f)
+    if inicio == fin:
+        return (x ** fin) / f
     else:
-        return ((x ** n) / fact(n)) + exponencial(x, n - 1)
+        return [((x ** inicio) / f) + exponencial(x, inicio + 1, fin, f, arr)[0], arr]
+arr = []
+print(exponencial(1, 0, 10, 1,arr ))
 
 
 def graficarEX():
     exponentes = np.array([], dtype=float)
-    valores = np.arange(10, 1010, 10)
+    valores = np.arange(10, 1000, 10)
     print(valores)
     for i in valores:
         print(exponencial(3, i))
@@ -122,5 +127,4 @@ def graficarEX():
     plt.show()
 
 
-graficarEX()
 ## Punto 7
