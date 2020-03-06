@@ -47,10 +47,7 @@ def exponencial(x, n):
     else:
         return ((x ** n) / fact(n)) + exponencial(x, n - 1)
 
-
-print(exponencial(2.78, 100))
-
-
+print(isinstance(exponencial(3, 1000), float))
 ## Punto 4
 def fact(n):
     if n == 0 or n == 1:  # por defincición factorial(0 V 1) =1
@@ -69,6 +66,8 @@ def sen(x, n):
 
 
 print(sen(1, 4))
+
+
 ## Punto 5
 def fact(n):
     if n == 0 or n == 1:  # por defincición factorial(0 V 1) =1
@@ -85,11 +84,13 @@ def cos(x, n):
     else:
         return (((-1) ** n) * (x ** (2 * n)) / fact(2 * n)) + cos(x, n - 1)
 
+
 print(cos(1, 4))
 
 ## Punto 6
 import numpy as np
 import matplotlib.pyplot as plt
+
 
 def fact(n):
     if n == 0 or n == 1:  # por defincición factorial(0 V 1) =1
@@ -107,20 +108,19 @@ def exponencial(x, n):
         return ((x ** n) / fact(n)) + exponencial(x, n - 1)
 
 
-
 def graficarEX():
-    exponentes = []
+    exponentes = np.array([], dtype=float)
     valores = np.arange(10, 1010, 10)
     print(valores)
     for i in valores:
-        exponentes.append(exponencial(3, i))
+        print(exponencial(3, i))
+        exponentes = np.append(exponentes, exponencial(3, i))
     plt.plot(valores, exponentes)
     plt.title("Valor de e^3 con n de diferentes valores")
     plt.xlabel("N")
     plt.ylabel("e^3 con N")
     plt.show()
-print(graficarEX())
 
 
-##
-
+graficarEX()
+## Punto 7
