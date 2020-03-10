@@ -181,20 +181,6 @@ import matplotlib.pyplot as plt
 import math as m
 
 
-def sen(x, n, f=1, i=1):
-    if x == 0:
-        return 0
-    if i != 0:
-        f *=
-    if i == n:
-        return (((-1) ** n) * (x ** (2 * n + 1))) / f
-    else:
-        return ((((-1) ** i) * (x ** (2 * i + 1))) / f) + sen(x, n, f, i + 1)
-
-
-print(sen(1, 4))
-
-
 def sen(x, n):
     if x == 0:
         return 0
