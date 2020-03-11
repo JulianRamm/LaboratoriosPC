@@ -1,3 +1,4 @@
+
 ## Punto 1
 import numpy as np
 
@@ -24,4 +25,3 @@ def punto1():
 punto1()
 ##
 
-##
